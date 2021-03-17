@@ -1,0 +1,15 @@
+.project
+.settings
+*~
+*.diff
+*.patch
+.DS_Store
+.bower.json
+.sizecache.json
+
+npm-debug.log*
+
+/dist/*
+!/dist/.eslintrc.json
+
+/node_modules

@@ -1,0 +1,41 @@
+﻿{
+    "compilerOptions": {
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "importHelpers": false,
+        "isolatedModules": true,
+        "lib": [
+            "DOM",
+            "ESNext",
+            "ScriptHost"
+        ],
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        },
+        "sourceMap": true,
+        "strict": true,
+        "target": "ES2015",
+        "types": [
+            "wechat-miniprogram"
+        ],
+        "typeRoots": [
+            "./node_modules/@type",
+            "./types"
+        ]
+    },
+    "include": [
+        "src/**/*.ts",
+        "tests/**/*.ts",
+        "types/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

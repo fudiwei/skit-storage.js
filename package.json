@@ -1,0 +1,58 @@
+{
+    "name": "@skit/storage",
+    "title": "storage.js",
+    "description": "A better way to use storage (strong typing, namespacing, ttl, etc).",
+    "version": "1.0.0-rc",
+    "author": "RHQYZ",
+    "keywords": [
+        "store",
+        "storage",
+        "localstorage",
+        "sessionstorage",
+        "cache",
+        "expiry",
+        "ttl",
+        "key-value"
+    ],
+    "main": "dist/index.min.js",
+    "typings": "types/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fudiwei/skit-storage.js.git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "npm run build:umd && npm run build:min && npm run build:modern",
+        "build:umd": "webpack --config build/webpack.config.umd.js",
+        "build:min": "webpack --config build/webpack.config.min.js",
+        "build:modern": "webpack --config build/webpack.config.modern.js"
+    },
+    "files": [
+        "src/*",
+        "dist/*",
+        "types/*"
+    ],
+    "devDependencies": {
+        "@babel/core": "^7.13.10",
+        "@babel/plugin-proposal-nullish-coalescing-operator": "^7.13.8",
+        "@babel/plugin-proposal-optional-chaining": "^7.13.8",
+        "@babel/plugin-transform-arrow-functions": "^7.13.0",
+        "@babel/plugin-transform-runtime": "^7.13.10",
+        "@babel/preset-env": "^7.13.10",
+        "@babel/preset-typescript": "^7.13.0",
+        "@babel/runtime": "^7.13.10",
+        "@babel/runtime-corejs3": "^7.13.10",
+        "@types/wechat-miniprogram": "^3.3.0",
+        "@typescript-eslint/eslint-plugin": "^4.17.0",
+        "@typescript-eslint/parser": "^4.17.0",
+        "babel-loader": "^8.2.2",
+        "core-js": "^3.9.1",
+        "eslint": "^7.22.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-standard": "^5.0.0",
+        "prettier": "^2.2.1",
+        "typescript": "~4.2.3",
+        "webpack": "^5.25.1",
+        "webpack-cli": "^4.5.0"
+    }
+}
