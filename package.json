@@ -25,7 +25,8 @@
         "build": "npm run build:umd && npm run build:min && npm run build:modern",
         "build:umd": "webpack --config build/webpack.config.umd.js",
         "build:min": "webpack --config build/webpack.config.min.js",
-        "build:modern": "webpack --config build/webpack.config.modern.js"
+        "build:modern": "webpack --config build/webpack.config.modern.js",
+        "test": "mocha"
     },
     "files": [
         "src/*",
@@ -42,17 +43,37 @@
         "@babel/preset-typescript": "^7.13.0",
         "@babel/runtime": "^7.13.10",
         "@babel/runtime-corejs3": "^7.13.10",
+        "@types/chai": "^4.2.15",
+        "@types/mocha": "^8.2.1",
         "@types/wechat-miniprogram": "^3.3.0",
         "@typescript-eslint/eslint-plugin": "^4.17.0",
         "@typescript-eslint/parser": "^4.17.0",
         "babel-loader": "^8.2.2",
+        "chai": "^4.3.4",
         "core-js": "^3.9.1",
         "eslint": "^7.22.0",
+        "eslint-plugin-mocha": "^8.1.0",
         "eslint-plugin-prettier": "^3.3.1",
         "eslint-plugin-standard": "^5.0.0",
+        "mocha": "^8.3.2",
+        "mock-local-storage": "^1.1.17",
         "prettier": "^2.2.1",
+        "ts-node": "^9.1.1",
         "typescript": "~4.2.3",
         "webpack": "^5.25.1",
         "webpack-cli": "^4.5.0"
+    },
+    "mocha": {
+        "colors": true,
+        "recursive": [
+            "tests/**/*.test.ts"
+        ],
+        "reporter": [
+            "spec"
+        ],
+        "require": [
+            "ts-node/register",
+            "mock-local-storage"
+        ]
     }
 }

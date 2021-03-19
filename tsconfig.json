@@ -12,7 +12,7 @@
             "ESNext",
             "ScriptHost"
         ],
-        "module": "ESNext",
+        "module": "CommonJS",
         "moduleResolution": "Node",
         "paths": {
             "@/*": [
@@ -23,6 +23,8 @@
         "strict": true,
         "target": "ES2015",
         "types": [
+            "chai",
+            "mocha",
             "wechat-miniprogram"
         ],
         "typeRoots": [

@@ -6,7 +6,11 @@ module.exports = {
         amd: true,
         webpack: true
     },
-    extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+    extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:mocha/recommended'
+    ],
     globals: {
         'wx': true,   // 微信小程序宿主环境
         'qq': true,   // QQ 小程序宿主环境
@@ -28,7 +32,7 @@ module.exports = {
         parser: '@typescript-eslint/parser',
         sourceType: 'module'
     },
-    plugins: ['@typescript-eslint', 'prettier'],
+    plugins: ['@typescript-eslint', 'prettier', 'mocha'],
     rules: {
         'indent': ['error', 4, { SwitchCase: 1 }],
         'linebreak-style': ['warn', 'windows'],

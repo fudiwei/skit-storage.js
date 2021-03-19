@@ -1,3 +1,5 @@
+/// <reference path="../types/index.d.ts" />
+
 import LocalStorageAdapter from './adapters/localstorage';
 import SessionStorageAdapter from './adapters/sessionstorage';
 import MiniprogramAdapter from './adapters/miniprogram';

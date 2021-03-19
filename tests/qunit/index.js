@@ -87,31 +87,34 @@
         assert.ok($$storage.keys().length === 0, 'Clear all keys.');
     });
 
-    QUnit.test("Namespaces", function (assert) {
+    QUnit.test("Namespacings", function (assert) {
         clean();
 
         let storage1 = $$storage.create({ namespace: 'ns1' });
         let storage2 = $$storage.create({ namespace: 'ns2' });
 
-        storage1.set('key1', 'val1');
-        storage2.set('key2', 'val2');
+        storage1.set('key', 'val1');
+        storage2.set('key', 'val2');
         assert.ok(
             storage1.keys().length === 1 &&
             storage2.keys().length === 1,
             'Set a key-value in namespaces.'
         );
 
-        storage1.remove('key2');
-        assert.equal(storage2.get('key2'), 'val2', 'Get or remove a key-value in namespaces');
+        storage1.remove('key');
+        assert.equal(storage2.get('key'), 'val2', 'Get or remove a key-value in namespaces.');
 
-        storage2.clear();
-        assert.equal(storage1.get('key1'), 'val1', 'Clear all keys in namespaces');
+        storage1.set('key', 'val1');
+        storage1.clear();
+        assert.equal(storage1.get('key'), null, 'Clear all keys in one namespace.');
 
+        storage1.set('key', 'val1');
+        storage2.set('key', 'val2');
         $$storage.clear();
         assert.ok(
             storage1.keys().length === 0 &&
             storage2.keys().length === 0,
-            'Clear all keys in all namespaces'
+            'Clear all keys in all namespaces.'
         );
     });
 
