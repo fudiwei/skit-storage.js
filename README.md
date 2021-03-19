@@ -1,5 +1,10 @@
 # @skit/storage
 
+[![NPM Version](https://img.shields.io/npm/v/@skit/storage.svg?sanitize=true)](https://www.npmjs.com/package/@skit/storage)
+[![NPM Download](https://img.shields.io/npm/dm/@skit/storage.svg?sanitize=true)](https://www.npmjs.com/package/@skit/storage)
+[![Dependency Status](https://david-dm.org/fudiwei/skit-storage.js.svg)](https://david-dm.org/fudiwei/skit-storage.js)
+[![GitHub License](https://img.shields.io/github/license/fudiwei/skit-extensions.js)](https://github.com/fudiwei/skit-extensions.js/blob/master/LICENSE)
+
 A better way to use storage (strong typing, namespacing, ttl, etc).
 
 （[中文文档](./README.zh-CN.md)）
