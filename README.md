@@ -4,7 +4,7 @@
 [![NPM Download](https://img.shields.io/npm/dm/@skit/storage.svg?sanitize=true)](https://www.npmjs.com/package/@skit/storage)
 [![Travis-CI](https://travis-ci.org/fudiwei/skit-storage.js.svg?branch=main)](https://travis-ci.org/fudiwei/skit-storage.js)
 [![Dependency Status](https://david-dm.org/fudiwei/skit-storage.js.svg)](https://david-dm.org/fudiwei/skit-storage.js)
-[![GitHub License](https://img.shields.io/github/license/fudiwei/skit-extensions.js)](https://github.com/fudiwei/skit-extensions.js/blob/master/LICENSE)
+[![GitHub License](https://img.shields.io/github/license/fudiwei/skit-storage.js)](https://github.com/fudiwei/skit-storage.js/blob/main/LICENSE)
 
 A better way to use storage (strong typing, namespacing, ttl, etc).
 
