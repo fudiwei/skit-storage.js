@@ -4,7 +4,7 @@
 [![NPM Download](https://img.shields.io/npm/dm/@skit/storage.svg?sanitize=true)](https://www.npmjs.com/package/@skit/storage)
 [![Travis-CI](https://travis-ci.org/fudiwei/skit-storage.js.svg?branch=main)](https://travis-ci.org/fudiwei/skit-storage.js)
 [![Dependency Status](https://david-dm.org/fudiwei/skit-storage.js.svg)](https://david-dm.org/fudiwei/skit-storage.js)
-[![GitHub License](https://img.shields.io/github/license/fudiwei/skit-storage.js)](https://github.com/fudiwei/skit-storage.js/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/fudiwei/skit-storage.js)](https://mit-license.org/)
 
 更便捷地访问本地存储，支持强类型读写、命名空间、过期策略等特性，同时支持在浏览器和小程序中运行。
 
