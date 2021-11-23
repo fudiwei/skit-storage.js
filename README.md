@@ -204,10 +204,12 @@ If you really need similar functions, you can import other third-party serialize
 
 There are several versions to choose from in the _dist_ directory:
 
--   `index.js`：babel translated, uncompressed, IE8+ supported.
+-   `index.min.js`：Build with UMD. IE8+ supported.
 
--   `index.min.js`：babel translated, compressed, IE8+ supported.
+-   `index.modern.min.js`：Build with UMD. Only modern browsers supported.
 
--   `index.modern.js`：Only modern browsers supported
+-   `index.cjs.min.js`：Build with CommonJS. Node.js 9.0+ supported.
+
+-   `index.esm.min.js`：Build with ES Modules.
 
 P.S. In principle, it can also support IE6+. But because there is no LocalStorage feature on IE6-7, you need to write your own adapter based on IE UserData or polyfills.

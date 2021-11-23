@@ -2,7 +2,7 @@
     "name": "@skit/storage",
     "title": "storage.js",
     "description": "A better way to use storage (strong typing, namespacing, ttl, etc).",
-    "version": "1.0.0-rc",
+    "version": "1.0.0",
     "author": "RHQYZ",
     "keywords": [
         "store",

@@ -205,10 +205,12 @@ $$storage.keys({ eliminated: true });
 
 _dist_ 目录中提供了几个版本可供选择：
 
--   `index.js`：babel 后未压缩，最低支持到 IE8。
+-   `index.min.js`：UMD 版本，最低适配到 IE8。
 
--   `index.min.js`：babel 后压缩，最低支持到 IE8。
+-   `index.modern.min.js`：UMD 版本，仅适配支持 ES6 完整特性的现代浏览器。
 
--   `index.modern.js`：未经 babel，仅支持现代浏览器。
+-   `index.cjs.min.js`：CommonJS 版本，仅适配 Node.js 9.0+ 环境。
 
-P.S. 原则上 `index.js` 也可以支持到 IE6，但因 IE6 上没有 LocalStorage 特性，需要你自行编写基于 IE UserData 的适配器，或引入 polyfill。
+-   `index.esm.min.js`：ES Modules 版本，仅适配支持 ES Modules 的现代浏览器或 Node.js 环境。
+
+P.S. 原则上 `index.min.js` 也可以支持到 IE6，但因 IE6 上没有 LocalStorage 特性，需要你自行编写基于 IE UserData 的适配器，或引入第三方 polyfill。
