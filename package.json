@@ -68,7 +68,7 @@
     "mocha": {
         "colors": true,
         "recursive": [
-            "tests/**/*.test.ts"
+            "tests/spec/**/*.test.ts"
         ],
         "reporter": [
             "spec"

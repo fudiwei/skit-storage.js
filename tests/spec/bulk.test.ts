@@ -1,7 +1,7 @@
 ﻿import { expect } from 'chai';
 import { describe, it } from 'mocha';
 
-import $$storage from '../src/index';
+import $$storage from '../../src/index';
 
 function clean() {
     localStorage.clear();
