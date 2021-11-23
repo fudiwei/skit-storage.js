@@ -1,7 +1,5 @@
 ﻿const path = require('path');
 
-const babelConf = require('./babel.config.js');
-
 const DIR_SRC = path.resolve('./src');
 const DIR_DIST = path.resolve('./dist');
 
@@ -11,7 +9,7 @@ const DIR_DIST = path.resolve('./dist');
  * @type {Configuration}
  */
 module.exports = {
-    mode: 'development',
+    mode: 'production',
 
     context: DIR_SRC,
 
@@ -19,12 +17,14 @@ module.exports = {
 
     output: {
         path: DIR_DIST,
-        filename: 'index.js',
+        filename: 'index.min.js',
         library: '$$storage',
         libraryExport: '$$storage',
         libraryTarget: 'umd',
         umdNamedDefine: true
     },
+
+    devtool: 'source-map',
 
     node: {
         __filename: true,
@@ -45,7 +45,30 @@ module.exports = {
                 test: /\.(js|ts)$/,
                 use: {
                     loader: 'babel-loader',
-                    options: babelConf
+                    options: {
+                        presets: [
+                            [
+                                '@babel/preset-env',
+                                {
+                                    targets: 'defaults',
+                                    useBuiltIns: 'usage',
+                                    corejs: 3
+                                }
+                            ],
+                            '@babel/typescript'
+                        ],
+                        plugins: [
+                            [
+                                '@babel/plugin-transform-runtime',
+                                {
+                                    corejs: 3
+                                }
+                            ],
+                            '@babel/proposal-class-properties',
+                            '@babel/proposal-object-rest-spread'
+                        ],
+                        sourceType: 'unambiguous'
+                    }
                 },
                 exclude: /node_modules/
             }

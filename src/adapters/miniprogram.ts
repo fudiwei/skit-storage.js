@@ -2,6 +2,7 @@
 declare const my: typeof wx;
 declare const swan: typeof wx;
 declare const tt: typeof wx;
+declare const uni: typeof wx;
 
 const getProvider = (function () {
     let provider: typeof wx;
@@ -22,6 +23,9 @@ const getProvider = (function () {
             } else if ('object' === typeof tt && 'function' === typeof tt['getStorage']) {
                 // 头条小程序
                 provider = tt;
+            } else if ('object' === typeof uni && 'function' === typeof uni['getStorage']) {
+                // uni-app
+                provider = uni;
             } else {
                 throw new Error('Unsupported hosting environment, may be not in a mini-program.');
             }

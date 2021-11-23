@@ -16,7 +16,8 @@ module.exports = {
         'qq': true,   // QQ 小程序宿主环境
         'my': true,   // 支付宝小程序宿主环境
         'swan': true, // 百度小程序宿主环境
-        'tt': true    // 头条小程序宿主环境
+        'tt': true,   // 头条小程序宿主环境
+        'uni': true   // uni-app
     },
     overrides: [
         {

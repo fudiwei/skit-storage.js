@@ -14,7 +14,8 @@
         "ttl",
         "key-value"
     ],
-    "main": "dist/index.min.js",
+    "main": "dist/index.cjs.min.js",
+    "module": "dist/index.esm.min.js",
     "typings": "types/index.d.ts",
     "repository": {
         "type": "git",
@@ -22,10 +23,11 @@
     },
     "license": "MIT",
     "scripts": {
-        "build": "npm run build:umd && npm run build:min && npm run build:modern",
+        "build": "npm run build:cjs && npm run build:esm && npm run build:umd && npm run build:umd-modern",
+        "build:cjs": "webpack --config build/webpack.config.commonjs.js",
+        "build:esm": "webpack --config build/webpack.config.esmodule.js",
         "build:umd": "webpack --config build/webpack.config.umd.js",
-        "build:min": "webpack --config build/webpack.config.min.js",
-        "build:modern": "webpack --config build/webpack.config.modern.js",
+        "build:umd-modern": "webpack --config build/webpack.config.umd-modern.js",
         "test": "mocha"
     },
     "files": [
