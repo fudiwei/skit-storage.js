@@ -4,45 +4,38 @@ declare const swan: typeof wx;
 declare const tt: typeof wx;
 declare const uni: typeof wx;
 
-const getProvider = (function () {
-    let provider: typeof wx;
+const provider = (function () {
+    if ('object' === typeof wx && 'function' === typeof wx['getStorage']) {
+        // 微信小程序
+        return wx;
+    } else if ('object' === typeof qq && 'function' === typeof qq['getStorage']) {
+        // QQ 小程序
+        return qq;
+    } else if ('object' === typeof my && 'function' === typeof my['getStorage']) {
+        // 支付宝小程序
+        return my;
+    } else if ('object' === typeof swan && 'function' === typeof swan['getStorage']) {
+        // 百度小程序
+        return swan;
+    } else if ('object' === typeof tt && 'function' === typeof tt['getStorage']) {
+        // 头条小程序
+        return tt;
+    } else if ('object' === typeof uni && 'function' === typeof uni['getStorage']) {
+        // uni-app
+        return uni;
+    }
 
-    return function () {
-        if (!provider) {
-            if ('object' === typeof wx && 'function' === typeof wx['getStorage']) {
-                provider = wx;
-            } else if ('object' === typeof qq && 'function' === typeof qq['getStorage']) {
-                // QQ 小程序
-                provider = qq;
-            } else if ('object' === typeof my && 'function' === typeof my['getStorage']) {
-                // 支付宝小程序
-                provider = my;
-            } else if ('object' === typeof swan && 'function' === typeof swan['getStorage']) {
-                // 百度小程序
-                provider = swan;
-            } else if ('object' === typeof tt && 'function' === typeof tt['getStorage']) {
-                // 头条小程序
-                provider = tt;
-            } else if ('object' === typeof uni && 'function' === typeof uni['getStorage']) {
-                // uni-app
-                provider = uni;
-            } else {
-                throw new Error('Unsupported hosting environment, may be not in a mini-program.');
-            }
-        }
-
-        return provider;
-    };
+    throw new Error('"Storage" is not provided');
 })();
 
 const adaptor: SKIT.Storage.StorageAdapter = {
     keys() {
-        return getProvider().getStorageInfoSync().keys;
+        return provider.getStorageInfoSync().keys;
     },
 
     keysAsync() {
         return new Promise((resolve, reject) => {
-            getProvider().getStorageInfo({
+            provider.getStorageInfo({
                 success: (res) => resolve(res.keys),
                 fail: (err) => reject(err)
             });
@@ -50,12 +43,12 @@ const adaptor: SKIT.Storage.StorageAdapter = {
     },
 
     get(key) {
-        return getProvider().getStorageSync(key);
+        return provider.getStorageSync(key);
     },
 
     getAsync(key) {
         return new Promise((resolve, reject) => {
-            getProvider().getStorage({
+            provider.getStorage({
                 key: key,
                 success: (res) => resolve(res.data),
                 fail: (err) => reject(err)
@@ -64,12 +57,12 @@ const adaptor: SKIT.Storage.StorageAdapter = {
     },
 
     set(key, val) {
-        getProvider().setStorageSync(key, val);
+        provider.setStorageSync(key, val);
     },
 
     setAsync(key, val) {
         return new Promise((resolve, reject) => {
-            getProvider().setStorage({
+            provider.setStorage({
                 key: key,
                 data: val,
                 success: () => resolve(),
@@ -79,12 +72,12 @@ const adaptor: SKIT.Storage.StorageAdapter = {
     },
 
     remove(key) {
-        getProvider().removeStorageSync(key);
+        provider.removeStorageSync(key);
     },
 
     removeAsync(key) {
         return new Promise((resolve, reject) => {
-            getProvider().removeStorage({
+            provider.removeStorage({
                 key: key,
                 success: () => resolve(),
                 fail: (err) => reject(err)
@@ -93,12 +86,12 @@ const adaptor: SKIT.Storage.StorageAdapter = {
     },
 
     clear() {
-        getProvider().clearStorageSync();
+        provider.clearStorageSync();
     },
 
     clearAsync() {
         return new Promise((resolve, reject) => {
-            getProvider().clearStorage({
+            provider.clearStorage({
                 success: () => resolve(),
                 fail: (err) => reject(err)
             });

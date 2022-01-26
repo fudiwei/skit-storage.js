@@ -1,78 +1,50 @@
-﻿const getProvider = (function () {
-    let provider: typeof localStorage;
+﻿const provider = (function () {
+    if ('object' === typeof localStorage) {
+        return localStorage;
+    }
 
-    return function () {
-        if (!provider) {
-            if ('object' === typeof localStorage) {
-                provider = localStorage;
-            } else {
-                throw new Error('Unsupported hosting environment, may be not in a browser.');
-            }
-        }
-
-        return provider;
-    };
+    throw new Error('"LocalStorage" is not provided');
 })();
 
 const adaptor: SKIT.Storage.StorageAdapter = {
     keys() {
-        return Object.keys(getProvider());
+        return Object.keys(provider);
     },
 
     keysAsync() {
-        try {
-            return Promise.resolve(this.keys());
-        } catch (err) {
-            return Promise.reject(err);
-        }
+        return Promise.resolve(adaptor.keys());
     },
 
     get(key) {
-        return getProvider().getItem(key);
+        return provider.getItem(key);
     },
 
     getAsync(key) {
-        try {
-            return Promise.resolve(this.get(key));
-        } catch (err) {
-            return Promise.reject(err);
-        }
+        return Promise.resolve(adaptor.get(key));
     },
 
     set(key, val) {
-        getProvider().setItem(key, val);
+        provider.setItem(key, val);
     },
 
     setAsync(key, val) {
-        try {
-            return Promise.resolve(this.set(key, val));
-        } catch (err) {
-            return Promise.reject(err);
-        }
+        return Promise.resolve(adaptor.set(key, val));
     },
 
     remove(key) {
-        getProvider().removeItem(key);
+        provider.removeItem(key);
     },
 
     removeAsync(key) {
-        try {
-            return Promise.resolve(this.remove(key));
-        } catch (err) {
-            return Promise.reject(err);
-        }
+        return Promise.resolve(adaptor.remove(key));
     },
 
     clear() {
-        getProvider().clear();
+        provider.clear();
     },
 
     clearAsync() {
-        try {
-            return Promise.resolve(this.clear());
-        } catch (err) {
-            return Promise.reject(err);
-        }
+        return Promise.resolve(adaptor.clear());
     }
 };
 
